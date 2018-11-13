@@ -1,3 +1,4 @@
 'use strict';
 
-console.log('Module Loaded')
+const test = "I'm hooked up";
+console.log(test);

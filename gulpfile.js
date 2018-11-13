@@ -22,6 +22,7 @@ var uglify = require('gulp-uglify');
 var clean = require('gulp-clean');
 var rename = require('gulp-rename');
 var puppeteer = require('puppeteer');
+var babel = require('gulp-babel');
 
 // browserify
 var customOpts = {
@@ -41,6 +42,10 @@ function bundle() {
     .pipe(source('./main.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(babel({
+      presets: ["@babel/preset-env"]
+    }))
+    .on('error', log.error)
       .pipe(uglify())
       .on('error', log.error)
     .pipe(gulp.dest('./dist/js'))
