@@ -1,6 +1,56 @@
-main.ed--main {
-    width:100%;
-    background: white;
-    position: relative;
-    display: block;
+body {
+  font-family: 'Gudea', sans-serif;
+	   font-size: 20px;
+    line-height: 150%;
+    color: #333;
+	   height: 100%;
+}
+
+a {
+   text-decoration: none;
+   color: black;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+}
+
+.overflow-hidden {
+  overflow:hidden;
+}
+
+
+.jumbotron {
+	background: none;
+}
+
+.desktop-hide {
+    display: none;
+}
+
+ol {
+    list-style: none;
+    -webkit-padding-start: 0;
+}
+
+.z-100 {
+  z-index: 100;
+}
+.z-1 {
+  z-index: 1;
+}
+
+#about {
+	background: #fff;
+
+}
+#expertise {
+	background: #fff;
+}
+
+
+#approach {
+
+}
+
+#contact {
+	background: #fff
 }

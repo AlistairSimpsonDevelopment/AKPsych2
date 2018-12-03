@@ -1,0 +1,101 @@
+/* ---- SVG ICONS ---- */
+.svg-black {
+	color: black;
+  fill: #000;
+}
+
+.svg-white {
+	color: white !important;
+	fill: #fff !important;
+}
+
+.svg-hero-container {
+  height: 90%;
+  width: 100%;
+}
+
+.svg-hero {
+fill: black;
+height: 150vh;
+width: 120vw;
+left: 25vw;
+bottom: 25vh;
+z-index: 0;
+transform: rotate(310deg);
+}
+.icon-navbar {
+	height: 60px;
+	width: 60px;
+}
+
+.icon-hero {
+	height: 150px;
+	width: 150px;
+}
+.icon-hero-small {
+  height: 100px;
+  width: 100px;
+}
+.icon-footer {
+	height: 75px;
+	width: 75px;
+}
+
+.icon-anxiety {
+	height: 150px !important;
+	width: 150px !important;
+}
+
+.icon-heartbreak {
+	height: 150px !important;
+	width: 150px !important;
+}
+
+.icon-relationships {
+	height: 150px !important;
+	width: 150px !important;
+}
+
+.icon-large-left {
+  position: relative;
+  font-size: 150px;
+  color: #fff;/* #8ED2D3;*/
+  right: 32vw;
+  top: 10vh;
+  opacity: 1;
+}
+.icon-large-right {
+  position: relative;
+  font-size: 150px;
+  color: #fff;/* #8ED2D3;*/
+  top: -15vh;
+  left: 32vw;
+  z-index: 1;
+  opacity: 1;
+}
+
+.icon-absolute {
+  fill: #8ED2D3;
+  color: #8ED2D3;
+  opacity: 0.3;
+  height: 1000px;
+}
+
+.icon-absolute-ml {
+  transform: rotate(90deg);
+  left: -20vw;
+}
+
+.icon-absolute-tr {
+  transform: rotate(245deg);
+  right: -15vw;
+  margin-top: -500px;
+}
+
+.icon-absolute-br {
+  transform: rotate(300deg);
+  right: -15vw;
+  margin-top: 400px;
+
+}
+/* ---- END SVG ICONS ---- */

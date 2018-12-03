@@ -1,7 +1,7 @@
 {
-  "name": "ff-editorial-blank-master",
+  "name": "AkPsych",
   "version": "1.0.0",
-  "description": "Blank Project for Farfetch Editorials",
+  "description": "AkPsych",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
