@@ -17,11 +17,11 @@
 /* tablets */
 @media only screen and (max-width: 768px) {
 
-#image-alex {
-  max-width: 250px;
-  max-height: 250px;
-
-}
+  #image-alex {
+  height: auto;
+  width: 100%;
+  padding: 1em;
+  }
   .hero-background {
       background-attachment:scroll;
   }
@@ -64,7 +64,7 @@
 }
 .block-3 {
   width: 100%;
-
+  max-width: 250px !important;
   margin: auto !important;
 }
 }
@@ -123,10 +123,6 @@
   z-index: 1;
 }
 
-.block-3 {
-  width: 100%;
-  margin: 10px auto !important;
-}
 }
 
 /* ---- END MEDIA QUERIES & MOBILE CSS ---- */
