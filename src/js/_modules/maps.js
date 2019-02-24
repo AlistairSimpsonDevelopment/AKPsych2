@@ -1,12 +1,12 @@
 function initMap() {
   var locations = [
     ['The Awareness Center, Tooting <br>74-80 Upper Tooting Road <br>London <br>SW17 7PB', 51.43421, -.16276 ],
-    ['37 Museum Street <br>London <br>WC1A 1LQ', 51.51809, -0.1280]
+    ['Recentre Health, Balham <br>246 Balham High Road <br>London <br>SW17 7AW', 51.44049, -0.15570]
   ];
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 51.4881, lng: -0.1376},
-      zoom: 12
+      center: {lat: 51.43833, lng: -.15776},
+      zoom: 15
     });
     var infowindow = new google.maps.InfoWindow();
 
