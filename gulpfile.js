@@ -23,6 +23,7 @@ var clean = require('gulp-clean');
 var rename = require('gulp-rename');
 var puppeteer = require('puppeteer');
 var babel = require('gulp-babel');
+var babelify = require( 'babelify' );
 
 // browserify
 var customOpts = {
@@ -30,7 +31,9 @@ var customOpts = {
   debug: true
 };
 var opts = assign({}, watchify.args, customOpts);
-var b = watchify(browserify(opts));
+var b = watchify(browserify(opts).transform(babelify, {presets: ["@babel/preset-env"]})
+);
+
 
 gulp.task('javascript', bundle);
 b.on('update', bundle);
@@ -88,27 +91,23 @@ gulp.task('html-tmp', function(done){
             return {'assetPath': assetPath,'feedPath': feedPath}
         }))
         .pipe(pug())
-        .pipe(rename({suffix: '_'+item.version}))
         .pipe(gulp.dest('./tmp'))
         .pipe(browserSync.stream());
   })
   done()
 });
 
+
 gulp.task('html-dist', function(done){
   assetPath = assetCDN;
   feedPath = '';
   var translations = JSON.parse(fs.readFileSync('./src/_data/translations.json'));
   translations.forEach(function(item){
-    return gulp.src(['./src/html/*.pug'])
-        .pipe(data(function(file) {
-            return item
-        }))
+    return gulp.src(['!./src/_layout/*','!./src/_modules/*','!./src/html/*','./src/*.pug'])
         .pipe(data(function(){
             return {'assetPath': assetPath,'feedPath': feedPath}
         }))
         .pipe(pug({pretty:true}))
-        .pipe(rename({suffix: '_'+item.version}))
         .pipe(gulp.dest('./dist'));
   })
   done()
@@ -120,7 +119,7 @@ gulp.task('serve', gulp.series('clean', gulp.series('html-tmp','assets','javascr
     browserSync.init({
       server: {
         baseDir: "./tmp/",
-        index: "index_en.html" // english version as default
+        index: "index.html" // english version as default
       }
     });
     gulp.watch('./src/js/**/**.js', gulp.parallel('javascript')).on('change', browserSync.reload);
@@ -138,24 +137,3 @@ gulp.task('build', gulp.series( gulp.series('clean', gulp.series('html-dist','as
   // exit terminal process
   return process.exit(0);
 }));
-
-// GULP DEPLOY & GULP DEPLOY-BUILD
-
-// helper functions
-function getFilesFromPath(path, extension) {
-    let dir = fs.readdirSync( path );
-    return dir.filter( elm => elm.match(new RegExp(`.*\.(${extension})`, 'ig')));
-}
-
-async function asyncForEach(array, callback) {
-  for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array)
-  }
-}
-
-let htmlFiles;
-gulp.task('getFiles', function(done){
-  htmlFiles = getFilesFromPath('./dist', '.html')
-  console.log(htmlFiles)
-  done();
-})
